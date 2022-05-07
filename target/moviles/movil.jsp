@@ -32,7 +32,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= movil.getModelo() %></h5>
             <p class="card-text">Lanzado por <strong><%= movil.getMarca() %></strong></p>
-            <a href="buy?id=<%= movil.getId() %>" class="btn btn-primary">Comprar</a>
+            <a href="buy?id=<%= movil.getReferencia() %>" class="btn btn-primary">Comprar</a>
           </div>
           <div class="card-footer text-muted">
             Disponible en color: <strong><%= movil.getColor() %></strong>

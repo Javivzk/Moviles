@@ -284,6 +284,21 @@ public class MovilDao {
         movil.setMarca(resultSet.getString("marca"));
         movil.setModelo(resultSet.getString("modelo"));
         movil.setColor(resultSet.getString("color"));
+        movil.setPrecioBase(Integer.valueOf(resultSet.getString("precioBase")));
         return movil;
+    }
+
+    public Optional<Movil> findById(String referencia) throws SQLException {
+        String sql = "SELECT * FROM MOVIL WHERE referencia = ?";
+        Movil movil = null;
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, referencia);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            movil = fromResultSet(resultSet);
+        }
+
+        return Optional.ofNullable(movil);
     }
 }

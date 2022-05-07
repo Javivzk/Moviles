@@ -66,7 +66,6 @@ public class Menu {
             System.out.println("5. Ver todas las ventas");
             System.out.println("6. Modificar un movil");
             System.out.println("7. Buscar moviles");
-            System.out.println("8. Eliminar movil");
             System.out.println("0. Salir");
             System.out.print("Opcion elegida: ");
             opcion = teclado.nextLine();
@@ -94,9 +93,6 @@ public class Menu {
                 case "7":
                     buscarMovil();
                     break;
-                case "8":
-                    eliminarMovil();
-                    break;
                 case "0":
                     close();
                     System.exit(0);
@@ -106,79 +102,6 @@ public class Menu {
                     break;
             }
         } while (!opcion.equals("0"));
-    }
-
-    private void eliminarMovil() {
-        MovilDao movilDao = new MovilDao(connection);
-        Movil movil;
-
-        try {
-            ArrayList<Movil> moviles;
-
-            System.out.println("Selecciona el movil a eliminar: ");
-            moviles = movilDao.findAll();
-
-            int indice = 1;
-            for (Movil aux : moviles) {
-                System.out.println(indice + ". " + aux.toString());
-                indice++;
-            }
-            System.out.print("Opcion elegida: ");
-            String opcion = teclado.nextLine();
-            Integer indiceMovil = Integer.parseInt(opcion);
-            movil = moviles.get(indiceMovil - 1);
-        } catch (SQLException sqle) {
-            System.out.println("Ha habido un error con la base de datos");
-            return;
-        } catch (NumberFormatException nfe) {
-            System.out.println("ERROR: Lo que has introducido no es un numero");
-            return;
-        } catch (IndexOutOfBoundsException ioobe) {
-            System.out.println("ERROR: El numero elegido no es una opcion");
-            return;
-        }
-
-        try {
-            System.out.println("Introduce la marca (Actual: " + movil.getMarca() + "):");
-            movil.setMarca(teclado.nextLine());
-            compruebaVacio(movil.getMarca());
-            System.out.println("Introduce el modelo (Actual: " + movil.getModelo() + "):");
-            movil.setModelo(teclado.nextLine());
-            compruebaVacio(movil.getModelo());
-            System.out.println("Introduce el color (Actual: " + movil.getColor() + "):");
-        } catch (IllegalArgumentException iae) {
-            System.out.println(iae.getMessage());
-            return;
-        }
-
-        Integer precio;
-        String color;
-        try {
-            color = (teclado.nextLine());
-            System.out.println("Introduce el precio base (Actual: " + movil.getPrecioBase() + "):");
-            precio = Integer.parseInt(teclado.nextLine());
-            movil.setColor(color);
-            movil.setPrecioBase(precio);
-
-        } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
-            System.out.println("Error: Movil no modificado");
-            return;
-        }
-
-        try {
-            boolean correcto = movilDao.eliminarMovil(String.valueOf(movil));
-            if (correcto) {
-                System.out.println("\n El movil se ha modificado correctamente! \n");
-            } else {
-                System.out.println("\n El movil no se ha podido modificar \n");
-            }
-
-        } catch (SQLException sqle) {
-            System.out.println("Ha habido un error con la base de datos");
-            return;
-        }
-
     }
 
 
