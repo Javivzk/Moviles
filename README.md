@@ -1,10 +1,10 @@
 # Phono Store
-Actividad de aprendizaje de 1º de DAM de las 
-asignaturas de Programacion, Bases de datos y Entornos de 
+Actividad de aprendizaje de 1º de DAM de las
+asignaturas de Programacion, Bases de datos y Entornos de
 desarrollo.
 Realizada por Javier Vizcaino Olivares
 
-Funcionalidades de Programacion:
+## Funcionalidades de Programacion:
 
 ● Dar de alta: Se pueden dar de alta datos de 2 entidades al menos
 
@@ -36,7 +36,7 @@ pueda comprar un producto
 
 ● Zona privada: Diseña una zona privada para los usuarios, modificar su perfil
 
-Entornos de Desarrollo:
+## Entornos de Desarrollo:
 
 ● Crea un repositorio en GitHub para almacenar el código del proyecto de forma que
 dispongan de las ramas master y develop. Configura también el fichero
@@ -45,9 +45,9 @@ enumere los puntos que has realizado
 
 ● Para cada nueva funcionalidad se creará una nueva rama feature y se fusionará con
 develop mediante Pull Request:
-    ○ Crear las 3 clases
-    ○ Crear las opciones de menú para registrar objetos de las 3 clases
-    ○ Crear las opciones de menú para visualizar los objetos creados
+○ Crear las 3 clases
+○ Crear las opciones de menú para registrar objetos de las 3 clases
+○ Crear las opciones de menú para visualizar los objetos creados
 
 ● Configura un job en Jenkins para obtener el código del proyecto del repositorio y
 que se compile y empaquete el proyecto
@@ -56,7 +56,7 @@ que se compile y empaquete el proyecto
 analizado por un SonarQube
 
 ● Instala y ejecuta VisualVM y monitoriza el rendimiento y el uso de memoria de tu
-aplicación 
+aplicación
 
 
 ● Configura maven para poder lanzar un análisis de código del proyecto directamente
@@ -64,9 +64,9 @@ con esta herramienta
 
 ● Añade algunos test JUnit al proyecto y configura el Job de Jenkins para que se
 ejecuten cada vez que éste se lance
-    ○ Test para comprobar que se puede crear cada uno de los objetos, invocando
-    al constructor y comprobando luego los valores de sus atributos
-    ○ Comprobar el método equals de al menos una de las clases
+○ Test para comprobar que se puede crear cada uno de los objetos, invocando
+al constructor y comprobando luego los valores de sus atributos
+○ Comprobar el método equals de al menos una de las clases
 
 ● Añade una release del proyecto al repositorio para que los usuarios puedan
 descargarse tu aplicación para usarla directamente
